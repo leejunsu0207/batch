@@ -76,7 +76,7 @@ public class MyJobTwo {
     public ItemProcessor <Product, Product> processor(@Value("#{jobParameters[requestDate]}") String requestDate){
         return item -> {
             logger.info("[Product Process start >>>>>>>>>>>>>>>>>>>>>>>>>>>>] : {}", item);
-            item.setName(String.format("%s_%s_%s", "pooney", requestDate, item.getName()));
+            item.setName(String.format("%s_%s_%s", "change", requestDate, item.getName()));
             return item;
         };
 

@@ -1,3 +1,5 @@
+server:
+  port: 80
 
 spring:
   batch:
@@ -12,20 +14,20 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
-        show-sql: true
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/batch?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mariadb://localhost:3306/batch
     username: root
     password: Password
   sql:
     init:
       schema-locations: classpath:iniSql/schema.sql
       data-locations: iniSql/data.sql
-      mode: always
+      mode: never
 
 logging:
   level:
@@ -34,3 +36,4 @@ logging:
       type.descriptor.sql: DEBUG
       SQL: DEBUG
       type: trace
+

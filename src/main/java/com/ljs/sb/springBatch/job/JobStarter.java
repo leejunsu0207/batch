@@ -1,5 +1,6 @@
 package com.ljs.sb.springBatch.job;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
@@ -11,17 +12,18 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.time.LocalDateTime;
 
 @Configuration
+@RequiredArgsConstructor
 public class JobStarter {
 
-    JobLauncher jobLauncher;
-    Job myJobTaskletOne_Job1;
-    Job myJobTwo_job1;
+    private final JobLauncher jobLauncher;
+    private final Job myJobTaskletOne_Job1;
+    private final Job myJobTwo_job1;
 
-    public JobStarter(JobLauncher jobLauncher, Job myJobTaskletOne_Job1, Job myJobTwo_job1) {
-        this.jobLauncher = jobLauncher;
-        this.myJobTaskletOne_Job1 = myJobTaskletOne_Job1;
-        this.myJobTwo_job1 = myJobTwo_job1;
-    }
+//    public JobStarter(JobLauncher jobLauncher, Job myJobTaskletOne_Job1, Job myJobTwo_job1) {
+//        this.jobLauncher = jobLauncher;
+//        this.myJobTaskletOne_Job1 = myJobTaskletOne_Job1;
+//        this.myJobTwo_job1 = myJobTwo_job1;
+//    }
 
     @Scheduled(fixedDelay=5000)
     public void TaskletStart() throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
